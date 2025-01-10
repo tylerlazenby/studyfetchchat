@@ -14,3 +14,4 @@ In order to do that, we use Vercel CLI to pull the environment variables from Ve
 vercel env pull
 ```
 
+Adding this to run the commit
