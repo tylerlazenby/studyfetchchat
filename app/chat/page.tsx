@@ -28,6 +28,7 @@ const formSchema = z.object({
     }),
 })
 
+
 const ChatPage = () => {
     const [history, setHistory] = useState<HistoryItemType[]>([]);
     const [isLoading, setIsLoading] = useState(false);
