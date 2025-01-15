@@ -1,6 +1,14 @@
 import Markdown from "react-markdown";
 
-const HistoryItem = ({ type, content }: { type: 'message' | 'response' | 'thinking' | 'error', content: string | null }) => {
+enum HistoryType {
+    USER = 'user',
+    ASSISTANT = 'assistant',
+    THINKING = 'thinking',
+    SYSTEM = 'system',
+    ERROR = 'error'
+}
+
+const HistoryItem = ({ type, content }: { type: HistoryType, content: string | null }) => {
     if (type === 'thinking') {
         return (
             <div className="flex justify-start">
@@ -22,8 +30,8 @@ const HistoryItem = ({ type, content }: { type: 'message' | 'response' | 'thinki
     }
 
     return (
-        <div className={`flex ${type === 'message' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`rounded-lg p-3 max-w-[70%] ${type === 'message' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>
+        <div className={`flex ${type === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`rounded-lg p-3 max-w-[70%] ${type === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>
                 <Markdown>{content}</Markdown>
             </div>
         </div>
